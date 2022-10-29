@@ -1,16 +1,11 @@
+import { BtnFeedback } from './Btn_feedback/Btn_feedback';
+import { TitleFeedback } from './Title_Feedback/Title_Feedback';
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
+    <div>
+      <TitleFeedback title="Please leave feedback" />
+      <BtnFeedback feedback="Good" />
     </div>
   );
 };
