@@ -2,17 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './FeedbackOptions.styled';
 
-export const FeedbackOptions = ({ numberGood, numberNeutral, numberBad }) => (
+export const FeedbackOptions = ({ options, onLeaveFeedback }) => (
   <>
-    <Button type="button" onClick={numberGood}>
-      Good
-    </Button>
-    <Button type="button" onClick={numberNeutral}>
-      Neutral
-    </Button>
-    <Button type="button" onClick={numberBad}>
-      Bad
-    </Button>
+    {options.map(option => {
+      return (
+        <Button
+          type="button"
+          name={option}
+          onClick={() => onLeaveFeedback(option)}
+        >
+          {option}
+        </Button>
+      );
+    })}
   </>
 );
 

@@ -11,19 +11,21 @@ export class App extends Component {
     neutral: 0,
     bad: 0,
   };
-  numberGood = () => {
+
+  options = Object.keys(this.state);
+
+  // Альтернативний варіант:
+
+  // incriment = e => {
+  //   const feedbackValue = e.target.name;
+  //   this.setState(prevState => {
+  //     return { [feedbackValue]: prevState[feedbackValue] + 1 };
+  //   });
+  // };
+
+  incriment = option => {
     this.setState(prevState => {
-      return { good: prevState.good + 1 };
-    });
-  };
-  numberNeutral = () => {
-    this.setState(prevState => {
-      return { neutral: prevState.neutral + 1 };
-    });
-  };
-  numberBad = () => {
-    this.setState(prevState => {
-      return { bad: prevState.bad + 1 };
+      return { [option]: prevState[option] + 1 };
     });
   };
 
@@ -44,9 +46,8 @@ export class App extends Component {
         <TitleFeedback title="Please leave feedback" />
         <Container>
           <FeedbackOptions
-            numberGood={this.numberGood}
-            numberNeutral={this.numberNeutral}
-            numberBad={this.numberBad}
+            options={this.options}
+            onLeaveFeedback={this.incriment}
           />
         </Container>
         <ContainerStatistics>
