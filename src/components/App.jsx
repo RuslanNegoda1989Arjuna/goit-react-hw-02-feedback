@@ -12,8 +12,6 @@ export class App extends Component {
     bad: 0,
   };
 
-  options = Object.keys(this.state);
-
   // Альтернативний варіант:
 
   // incriment = e => {
@@ -46,7 +44,7 @@ export class App extends Component {
         <TitleFeedback title="Please leave feedback" />
         <Container>
           <FeedbackOptions
-            options={this.options}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.incriment}
           />
         </Container>
